@@ -22,7 +22,7 @@ st.set_page_config(layout="wide")
 pd.options.plotting.backend = "plotly"
 
 file_path = ''
-spotify=pd.read_csv(file_path+'/spotify.csv', encoding='latin-1')
+spotify=pd.read_csv(file_path+'spotify.csv', encoding='latin-1')
 
 spotify['artists_name']=spotify['artists_name'].str.replace("\x96","ñ")
 spotify['artists_name']=spotify['artists_name'].str.replace("Â","")
