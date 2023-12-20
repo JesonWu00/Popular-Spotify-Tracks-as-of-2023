@@ -236,8 +236,8 @@ with st.sidebar:
 
 if selected=='Abstract':
     st.title("Spotify Abstract")
-    st.markdown("")
-
+    st.markdown("Nowadays, we all can listen to music through our mobile apps, such as Spotify, Apple Music, and many of us enjoy listen to songs that we like. However, have you ever wondered why many people would love certain songs, and why they are popular as it is today? What are the “scientific” factors that makes certain tracks more popular than others?")
+    st.markdown("Based on a given dataset, we will come up with scientific reasons that would answer these questions through this case study! This case study aims to explore certain patterns in the dataset, to understand what scientifically make a track popular, the factors that make the tracks popular, and the user preferences of popular songs. Without further ado, let’s get started!")
 
 
 
@@ -248,8 +248,14 @@ if selected=="Background Information":
     
     st.markdown("Spotify, a Swedish audio streaming platform, is one of the largest music applications, as well as one of the most prominent music streaming service that we use today. As of September 2023, Spotify has over 100 million tracks, more than 574 million users, including 226 million subscribers.<sup>1</sup> Spotify generates “popular tracks” based on the number of all-time and recent streams.<sup>2</sup>",unsafe_allow_html=True)
     
-    st.markdown("This is the data:")
-    st.dataframe(spotify)
+    st.markdown("This is the data:",unsafe_allow_html=True)
+    st.markdown("The Spotify dataset provides information of the most streamed songs on Spotify, as of 2023. The dataset contains the most popular songs released from 20th century up to 2023, by solo artists, duets, groups, or multi-artist collaborations. Each row in the dataset contains information on a specific song, including its name, artist(s), number of artists featured (artist count), released date, number of streams, presence in playlists and charts on platforms like Spotify, Apple Music, Deezer, as well as various audio features including danceability, valence, energy, etc., that are considered as the scientific attributes of a song.",unsafe_allow_html=True)
+    st.markdown("Each of the audio features range from 0 to 100%, to describe how much of those attributes are present in the particular track. Danceability measures how much the track is suitable for dancing based on its musical elements (such as tempo, rhythm stability, beat strength, etc.); Valence describes the musical positiveness that the track conveys, that it measures how happy, cheerful, euphoric (if the track sounds positive), or how sad, depressed, angry (if the track sounds negative) a particular track is. Energy is a perceptual measure of intensity and activity, that more energy means that the track is fast, loud or noisy enough. Acousticness is a confidence measure of whether the track is acoustic. Instrumentalness measures how much the track is an “instrumental”, meaning that no spoken words are present. Liveness detects the audience presence in the recording, meaning an increased probability that the track was performed live. Speechiness detects the presence of spoken words in a track, and tracks like talk show, audio book, poetry usually comes close to 100% of speechiness.<sup>3</sup>",unsafe_allow_html=True)
+    st.markdown("We will first look at the previous studies on Spotify's popular tracks by experts. According to previous studies on Spotify’s top tracks in 2019, not all danceable songs are popular, but tracks with a danceability ranging from 64-84% (higher level) are the most popular ones on Spotify. Meanwhile, tracks with a moderate amount of energy (43-65%) can be more popular than tracks with low energy (below 40%) or with very high energy (above 80%). Low levels of speechiness also makes the track more popular, as the audience usually want to listen to the lyrics of the song instead of spoken words. Acousticness within 1-59% is a good range, but sometimes people don’t like acousticness around 1-30%, meaning that acousticness also depends on the genre of the track. Valence, however, doesn’t have much effect on the popularity of the song. In fact, the song’s artist(s) can also make the song itself popular, especially for the most popular artists.<sup>4</sup>",unsafe_allow_html=True)
+    st.markdown("From the top 10 most popular songs on Spotify during 2017, all songs have high levels of danceability (above 60%), they are low on liveness & speechiness, and they all have mid-to-high energy (40-80%). 9 out of 10 songs are very low on acousticness, with one exception being Ed Sheeran’s “Shape of You”. Valence, though, is quite spread out around the mid-to-high region. As for instrumentalness, most popular tracks seem to have a value that is near or equal to 0.<sup>5</sup>",unsafe_allow_html=True)
+    st.markdown("According to a 2021 study on the same topic, popularity increases with higher danceability and energy scores and lower acousticness and instrumentalness scores. Not only that, but tracks written in keys of B, A and E have the highest average popularity score, while for the modes of the track (major, minor), there isn’t a large difference in average popularity. These claims will be tested in the case study, to examine the 2023 trends and explain more “scientifically” of what makes certain tracks more popular than others.<sup>6</sup>",unsafe_allow_html=True)
+    st.markdown("Apart from creating users’ own playlists, Spotify is well-known for its algorithmic approach to recommend songs via playlists to users, based on their listening patterns, including personalized playlists like Discover Weekly, expertly curated playlists for certain genre(s), hand-picked playlists featuring the latest hits; Spotify also allows for collaborative playlists, where it allows for creating playlists with your friends and modify it together.<sup>7</sup> Meanwhile, Apple Music doesn’t support collaborative playlists, and doesn’t have Spotify’s algorithm-based approach, but it is still useful for curating playlists that appeal to users’ own preferences.<sup>8</sup>", unsafe_allow_html=True)
+    st.markdown("Playlists are essential for success on the music streaming platforms, by collaborating with curators and pitching tracks for the relevant playlists, artists can gain much more streams and greater exposure.<sup>9</sup> This case study also aims to discuss the patterns of streams on Spotify, versus the number of playlists on each of those platforms.", unsafe_allow_html=True)
 
 
 
@@ -918,8 +924,7 @@ if selected == "Analysis of Playlists & Time Factors":
         col6.markdown("")
         col6.markdown("")
         col6.markdown("For Spotify and Apple Music playlists, the graph follows an ascending trend, that the more streams a track receives, the more number of playlists it is likely to be in. For deezer playlists, however, the ascending trend is not very obvious, as many tracks are clustered at low numbers of playlists, and tracks with mid-to-high number of streams are spread out between low to high number of playlists.")
-        col6.markdown("Playlists are essential for success on the music streaming platforms, by collaborating with curators and pitching tracks for the relevant playlists, artists can gain much more streams and greater exposure.")
-        #col6.markdown("For each of the Charts, though, there is no obvious pattern associated with Spotify Streams. Many of the tracks are ranked at 0, meaning that these templates probably did not rank them on their charts. Spotify and Apple Music charts have more data points clustered at lower number of Streams and lower ranks. In Shazam charts, some of the low-streamed tracks have a higher rank value.")
+        col6.markdown("From those observations, we see that playlists can certainly be essential for the tracks' success and popularity, so that artists would gain greater exposure in the music industry.")
     
     
     
@@ -947,7 +952,7 @@ if selected == "Analysis of Playlists & Time Factors":
         col9.markdown("")
         col9.markdown("")
         col9.markdown("By looking at the median, q3 and upper fence, Tuesday releases have the most streams on Spotify overall, while Thursday and Friday releases also have some tracks that received greater streams.")
-        col9.markdown("Friday, however, has the lowest median and lower boundary of them all, though it has several outliers that received the highest streams. This is because Friday is the music industry's global release day since 2015, where many artists release on that day to maximize their sales and increase their popularity. This in turn causes more competition that drives down artists' chance for their songs to be more popular than releases on other days.")
+        col9.markdown("Friday, however, has the lowest median and lower boundary of them all, though it has several outliers that received the highest streams. This is because Friday is the music industry's global release day since 2015, where many artists release on that day to maximize their sales and increase their popularity. This in turn causes more competition that drives down artists' chance for their songs to be more popular than releases on other days.<sup>10</sup> <sup>11</sup>", unsafe_allow_html=True)
         col9.markdown("")
         col9.markdown("As for Months, January releases have the overall highest number of streams on Spotify, followed by September. November also has some tracks with the highest streams, although its median and upper boundary is less than January and September.")
     
@@ -955,10 +960,10 @@ if selected == "Analysis of Playlists & Time Factors":
 
 if selected == "Analysis of Artists":
     st.title("Analysis of Artists")
-    st.markdown("Now we will focus on 5 of the top artists that have distinctive musical features, while trying to analyze why do they have certain song attributes that made them popular as they are. We will only focus on Energy, Danceability and Valence, as these are the musical attributes where most tracks are in high or decent levels of these.")
+    st.markdown("Now we will focus on 5 of the top artists that have distinctive musical features, while trying to analyze why do they have certain song attributes that made them popular as they are. We will only focus on Energy, Danceability and Valence, as these musical attributes tend to have high or decent levels across a majority of tracks.")
     
     st.subheader("Analysis of Taylor Swift")
-    st.markdown("In terms of personality, Taylor Swift is known for being a charitable pop artist, with high empathy, loyalty, and outgoingness. Taylor demonstrates 'emotional intelligence' through her feelings, hurt, and worries in her music to touch the fans. Throuugh her discography, she demonstrates rich personality traits, reflecting her own persona, as well as resonating with her listeners' diverse personality types.")
+    st.markdown("In terms of personality, Taylor Swift is known for being a charitable pop artist, with high empathy, loyalty, and outgoingness. Taylor demonstrates 'emotional intelligence' through her feelings, hurt, and worries in her music to touch the fans. Throuugh her discography, she demonstrates rich personality traits, reflecting her own persona, as well as resonating with her listeners' diverse personality types.<sup>12</sup> <sup>13</sup>", unsafe_allow_html=True)
     
     col1,col2,col3=st.columns([4,5,5])
     
@@ -981,7 +986,7 @@ if selected == "Analysis of Artists":
     
     
     st.subheader("Analysis of Eminem")
-    st.markdown("Eminem is recognized as a very observant, adaptable and flexible artist, who experiments with different musical styles and themes throughout his career. Eminem's music, performances, and lyrical content can be described as 'intense', 'rebellious' and 'independent', as he is known for an individualistic approach to his music that constantly challenging and resisting societal expectations and norms.")
+    st.markdown("Eminem is recognized as a very observant, adaptable and flexible artist, who experiments with different musical styles and themes throughout his career. Eminem's music, performances, and lyrical content can be described as 'intense', 'rebellious' and 'independent', as he is known for an individualistic approach to his music that constantly challenging and resisting societal expectations and norms.<sup>14</sup>", unsafe_allow_html=True)
     
     col12,col13,col14=st.columns([4,5,5])
     
@@ -1004,7 +1009,7 @@ if selected == "Analysis of Artists":
     
     
     st.subheader("Analysis of Justin Bieber")
-    st.markdown("Justin Bieber is known for one of the most giving celebrities, because of his altruism from supporting numerous charities. Bieber is being described as passionate and emotionally sensitive (being photographed sobbing on a city bike, had emotional breakdown during the VMAs, etc.), with his music capturing his emotional sensitivity alongside his artistry and creativity. The songs reflect his character as his sensitive lyrics, energetic beats, as well as flexible music style.")
+    st.markdown("Justin Bieber is known for one of the most giving celebrities, because of his altruism from supporting numerous charities. Bieber is being described as passionate and emotionally sensitive (being photographed sobbing on a city bike, had emotional breakdown during the VMAs, etc.), with his music capturing his emotional sensitivity alongside his artistry and creativity. The songs reflect his character as his sensitive lyrics, energetic beats, as well as flexible music style.<sup>15</sup>", unsafe_allow_html=True)
     
     col4,col5,col6=st.columns([4,5,5])
     
@@ -1027,7 +1032,7 @@ if selected == "Analysis of Artists":
     
     
     st.subheader("Analysis of Dua Lipa")
-    st.markdown("Dua Lipa…")
+    st.markdown("Dua Lipa has been known for her upbeat and dance songs. As pop music was dominated by the downbeat songs of aggrieved and sadness, Dua Lipa came with her dancey and joyous-sounding tracks, to change the scene of pop music, even when the song is about a break-up. Dua Lipa's persona is slightly mysterious, yet everyone can feel her genuine personality, and her authenticity, through her music.<sup>16</sup>", unsafe_allow_html=True)
     
     col4,col5,col6=st.columns([4,5,5])
     
@@ -1044,19 +1049,45 @@ if selected == "Analysis of Artists":
         col5.plotly_chart(fig)
         col4.markdown("")
         col4.markdown("")
-        col4.markdown("….")
-        col4.markdown("….")
+        col4.markdown("As Dua Lipa is known for her upbeat and dance songs, it is obvious that all her songs have high levels of danceability, with vast majority of her songs having high levels of energy.")
+        col4.markdown("Most of Dua Lipa's popular songs have high levels of valence, although tracks with decent valence generally have more streams. As her popular tracks are mostly joyous-sounding, most of it have high valence levels, and even her break-up songs made it to decent valence instead of low.")
+    
+    
+    
+    st.subheader("Analysis of BTS")
+    st.markdown("BTS, being identified as K-pop group, has a versatile discography with diverse musical styles throughout the years, ranging from rap/hip hop and dance tracks to ballads. BTS spans several languages (including Korean, English and Japanese) that attracts a global audience, with their music having uplifting messages and speaking up on important issues, including mental health awareness and self-love.<sup>17</sup> <sup>18</sup>", unsafe_allow_html=True)
+    
+    col4,col5,col6=st.columns([4,5,5])
+    
+    with st.form("Box plot by BTS"):
+        bts = melt4[melt4["artists_name"]=="BTS"]
+        fig = px.box(bts, x="artists_name", y="streams", color="level", color_discrete_sequence=color_list, facet_col="factors", facet_col_wrap=2, facet_row_spacing=0.2, category_orders=order_dict, labels=all_cols_dict, hover_data="track_name",title="Streams on Spotify vs. Musical Attributes (BTS)", height=800, width=800)
+        fig.update_traces(marker_line_width=1)
+        fig.update_yaxes(title_text="<b>Number of Streams on Spotify</b>", title_font_size=14)
+        fig.update_layout(title_x=0.2, legend_title_font_size=14, legend_title_text="<b>Level</b>", legend_bordercolor="green", legend_borderwidth=2, hoverlabel_font_size=14)
+        fig.update_layout(xaxis=dict(title_text="<b>BTS' Releases</b>"),
+                          legend=dict(x=0.8,y=0.3,xanchor='right',yanchor='top'))
+        fig.for_each_annotation(lambda a: a.update(text=f'<b>{a.text.split("=")[-1]}</b>',font_size=14))
+        
+        col5.plotly_chart(fig)
+        col4.markdown("")
+        col4.markdown("")
+        col4.markdown("Many of the popular BTS tracks have high and decent levels of danceability and energy, while decent danceaiblity and energy tracks receive the highest streams overall. In fact, BTS' versatility in musical styles made them to be known by not just 'danceable' and 'highly energetic' music.")
+        col4.markdown("BTS' music also covered all three levels of valence, with the decent ones having the highest streams overall, while high valence tracks are also quite common. Their high to decent level of valence (happy, joyful, and not so much sadness) may correspond to their uplifting messages in their music, as well as their lyrical themes including mental health awareness and self-love, which also contributes to their musical positivity.")
+    
+    st.markdown("Overall, most of the artists follow the previously identified patterns, wherein mid-to-high levels of Danceability and Energy tend to make their tracks more popular. However, it depends on the artists' style and musical characteristics that are most well-known for. Valence alone may not have a significant impact on the popularity of tracks. However, it is the artists' personal traits, musical style, and lyrical themes, which they are known for, that determines the level of valence and generates popularity for their tracks. Hence, artists themselves can certainly influence and determine the popularity of songs.")
 
 
 
 
 if selected=="Conclusion":
     st.title("Conclusion")
-
     
-
-
-
+    st.markdown("Based on the explorations and analysis, tracks with a decent to high amount of danceability and energy, low levels of acousticness and speechiness, are all general factors that made these tracks popular as it is today. Among the most-streamed tracks, valence can be spread out from high to low levels. Tracks in Major keys of C#, D and F# also has a great number of streams on Spotify.")
+    st.markdown("The popularity of a song can also be influenced by the number of playlists it is included in. The more playlists a song is featured on, the greater exposure it receives, especially on platforms like Spotify. Additionally, tracks released on Tuesdays, Thursdays, and Fridays, as well as in the months of January, September, and November, are more likely to be popular compared to releases on other days or months. However, if a song is released during highly competitive times, such as on a Friday when many artists are also releasing new material, it is likely to lower the chance for becoming popular songs.")
+    st.markdown("By analyzing certain artists, we found that the song's artist(s) can certainly influence the song's popularity based on the persona, style, and musical and lyrical traits that the artist is known for. These traits are also reflected in their musical attributes, including danceability, valence, and energy. The artist's persona, style, and musical qualities, shown as their leels of danceability, valence and energy, can attract and resonate with specific audiences, contributing to the success of their songs.")
+    st.markdown("Most of the observations align with past studies and claims made by experts, except for the aspects of Mode and Key. This suggests that audience preferences for the specified musical attributes have remained relatively consistent over recent years. However, there may have been some changes in the preferences for the Mode and Key of songs.")
+    st.markdown("The above results outline the 'scientific' factors that contribute to certain tracks being more popular than others, as well as the user preferences for popular songs as of 2023. Through this case study, we have gained a better understanding of the specific user preferences for songs and the musical traits that many people loves. Hopefully, now we've understood why we enjoy certain songs that we listen to today!")
 
 if selected=="Bibliography":
     st.title("Bibliography")
