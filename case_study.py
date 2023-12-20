@@ -21,7 +21,7 @@ st.set_page_config(layout="wide")
 
 pd.options.plotting.backend = "plotly"
 
-file_path = ''
+file_path = '/Users/mac/Desktop/files/Data_Science_Python/'
 spotify=pd.read_csv(file_path+'spotify.csv', encoding='latin-1')
 
 spotify['artists_name']=spotify['artists_name'].str.replace("\x96","ñ")
@@ -252,10 +252,10 @@ if selected=="Background Information":
     st.markdown("The Spotify dataset provides information of the most streamed songs on Spotify, as of 2023. The dataset contains the most popular songs released from 20th century up to 2023, by solo artists, duets, groups, or multi-artist collaborations. Each row in the dataset contains information on a specific song, including its name, artist(s), number of artists featured (artist count), released date, number of streams, presence in playlists and charts on platforms like Spotify, Apple Music, Deezer, as well as various audio features including danceability, valence, energy, etc., that are considered as the scientific attributes of a song.",unsafe_allow_html=True)
     st.markdown("Each of the audio features range from 0 to 100%, to describe how much of those attributes are present in the particular track. Danceability measures how much the track is suitable for dancing based on its musical elements (such as tempo, rhythm stability, beat strength, etc.); Valence describes the musical positiveness that the track conveys, that it measures how happy, cheerful, euphoric (if the track sounds positive), or how sad, depressed, angry (if the track sounds negative) a particular track is. Energy is a perceptual measure of intensity and activity, that more energy means that the track is fast, loud or noisy enough. Acousticness is a confidence measure of whether the track is acoustic. Instrumentalness measures how much the track is an “instrumental”, meaning that no spoken words are present. Liveness detects the audience presence in the recording, meaning an increased probability that the track was performed live. Speechiness detects the presence of spoken words in a track, and tracks like talk show, audio book, poetry usually comes close to 100% of speechiness.<sup>3</sup>",unsafe_allow_html=True)
     st.markdown("We will first look at the previous studies on Spotify's popular tracks by experts. According to previous studies on Spotify’s top tracks in 2019, not all danceable songs are popular, but tracks with a danceability ranging from 64-84% (higher level) are the most popular ones on Spotify. Meanwhile, tracks with a moderate amount of energy (43-65%) can be more popular than tracks with low energy (below 40%) or with very high energy (above 80%). Low levels of speechiness also makes the track more popular, as the audience usually want to listen to the lyrics of the song instead of spoken words. Acousticness within 1-59% is a good range, but sometimes people don’t like acousticness around 1-30%, meaning that acousticness also depends on the genre of the track. Valence, however, doesn’t have much effect on the popularity of the song. In fact, the song’s artist(s) can also make the song itself popular, especially for the most popular artists.<sup>4</sup>",unsafe_allow_html=True)
-    st.markdown("From the top 10 most popular songs on Spotify during 2017, all songs have high levels of danceability (above 60%), they are low on liveness & speechiness, and they all have mid-to-high energy (40-80%). 9 out of 10 songs are very low on acousticness, with one exception being Ed Sheeran’s “Shape of You”. Valence, though, is quite spread out around the mid-to-high region. As for instrumentalness, most popular tracks seem to have a value that is near or equal to 0.<sup>5</sup>",unsafe_allow_html=True)
-    st.markdown("According to a 2021 study on the same topic, popularity increases with higher danceability and energy scores and lower acousticness and instrumentalness scores. Not only that, but tracks written in keys of B, A and E have the highest average popularity score, while for the modes of the track (major, minor), there isn’t a large difference in average popularity. These claims will be tested in the case study, to examine the 2023 trends and explain more “scientifically” of what makes certain tracks more popular than others.<sup>6</sup>",unsafe_allow_html=True)
-    st.markdown("Apart from creating users’ own playlists, Spotify is well-known for its algorithmic approach to recommend songs via playlists to users, based on their listening patterns, including personalized playlists like Discover Weekly, expertly curated playlists for certain genre(s), hand-picked playlists featuring the latest hits; Spotify also allows for collaborative playlists, where it allows for creating playlists with your friends and modify it together.<sup>7</sup> Meanwhile, Apple Music doesn’t support collaborative playlists, and doesn’t have Spotify’s algorithm-based approach, but it is still useful for curating playlists that appeal to users’ own preferences.<sup>8</sup>", unsafe_allow_html=True)
-    st.markdown("Playlists are essential for success on the music streaming platforms, by collaborating with curators and pitching tracks for the relevant playlists, artists can gain much more streams and greater exposure.<sup>9</sup> This case study also aims to discuss the patterns of streams on Spotify, versus the number of playlists on each of those platforms.", unsafe_allow_html=True)
+    st.markdown("From the top 10 most popular songs on Spotify during 2017, all songs have high levels of danceability (above 60%), they are low on liveness & speechiness, and they all have mid-to-high energy (40-80%). 9 out of 10 songs are very low on acousticness, with one exception being Ed Sheeran’s “Shape of You”. Valence, though, is quite spread out around the mid-to-high region. As for instrumentalness, most popular tracks seem to have a value that is near or equal to 0.<sup>3</sup>",unsafe_allow_html=True)
+    st.markdown("According to a 2021 study on the same topic, popularity increases with higher danceability and energy scores and lower acousticness and instrumentalness scores. Not only that, but tracks written in keys of B, A and E have the highest average popularity score, while for the modes of the track (major, minor), there isn’t a large difference in average popularity. These claims will be tested in the case study, to examine the 2023 trends and explain more “scientifically” of what makes certain tracks more popular than others.<sup>5</sup>",unsafe_allow_html=True)
+    st.markdown("Apart from creating users’ own playlists, Spotify is well-known for its algorithmic approach to recommend songs via playlists to users, based on their listening patterns, including personalized playlists like Discover Weekly, expertly curated playlists for certain genre(s), hand-picked playlists featuring the latest hits; Spotify also allows for collaborative playlists, where it allows for creating playlists with your friends and modify it together.<sup>6</sup> Meanwhile, Apple Music doesn’t support collaborative playlists, and doesn’t have Spotify’s algorithm-based approach, but it is still useful for curating playlists that appeal to users’ own preferences.<sup>7</sup>", unsafe_allow_html=True)
+    st.markdown("Playlists are essential for success on the music streaming platforms, by collaborating with curators and pitching tracks for the relevant playlists, artists can gain much more streams and greater exposure.<sup>8</sup> This case study also aims to discuss the patterns of streams on Spotify, versus the number of playlists on each of those platforms.", unsafe_allow_html=True)
 
 
 
@@ -952,7 +952,7 @@ if selected == "Analysis of Playlists & Time Factors":
         col9.markdown("")
         col9.markdown("")
         col9.markdown("By looking at the median, q3 and upper fence, Tuesday releases have the most streams on Spotify overall, while Thursday and Friday releases also have some tracks that received greater streams.")
-        col9.markdown("Friday, however, has the lowest median and lower boundary of them all, though it has several outliers that received the highest streams. This is because Friday is the music industry's global release day since 2015, where many artists release on that day to maximize their sales and increase their popularity. This in turn causes more competition that drives down artists' chance for their songs to be more popular than releases on other days.<sup>10</sup> <sup>11</sup>", unsafe_allow_html=True)
+        col9.markdown("Friday, however, has the lowest median and lower boundary of them all, though it has several outliers that received the highest streams. This is because Friday is the music industry's global release day since 2015, where many artists release on that day to maximize their sales and increase their popularity. This in turn causes more competition that drives down artists' chance for their songs to be more popular than releases on other days.<sup>9</sup> <sup>10</sup>", unsafe_allow_html=True)
         col9.markdown("")
         col9.markdown("As for Months, January releases have the overall highest number of streams on Spotify, followed by September. November also has some tracks with the highest streams, although its median and upper boundary is less than January and September.")
     
@@ -963,7 +963,7 @@ if selected == "Analysis of Artists":
     st.markdown("Now we will focus on 5 of the top artists that have distinctive musical features, while trying to analyze why do they have certain song attributes that made them popular as they are. We will only focus on Energy, Danceability and Valence, as these musical attributes tend to have high or decent levels across a majority of tracks.")
     
     st.subheader("Analysis of Taylor Swift")
-    st.markdown("In terms of personality, Taylor Swift is known for being a charitable pop artist, with high empathy, loyalty, and outgoingness. Taylor demonstrates 'emotional intelligence' through her feelings, hurt, and worries in her music to touch the fans. Throuugh her discography, she demonstrates rich personality traits, reflecting her own persona, as well as resonating with her listeners' diverse personality types.<sup>12</sup> <sup>13</sup>", unsafe_allow_html=True)
+    st.markdown("In terms of personality, Taylor Swift is known for being a charitable pop artist, with high empathy, loyalty, and outgoingness. Taylor demonstrates 'emotional intelligence' through her feelings, hurt, and worries in her music to touch the fans. Throuugh her discography, she demonstrates rich personality traits, reflecting her own persona, as well as resonating with her listeners' diverse personality types.<sup>11</sup> <sup>12</sup>", unsafe_allow_html=True)
     
     col1,col2,col3=st.columns([4,5,5])
     
@@ -986,7 +986,7 @@ if selected == "Analysis of Artists":
     
     
     st.subheader("Analysis of Eminem")
-    st.markdown("Eminem is recognized as a very observant, adaptable and flexible artist, who experiments with different musical styles and themes throughout his career. Eminem's music, performances, and lyrical content can be described as 'intense', 'rebellious' and 'independent', as he is known for an individualistic approach to his music that constantly challenging and resisting societal expectations and norms.<sup>14</sup>", unsafe_allow_html=True)
+    st.markdown("Eminem is recognized as a very observant, adaptable and flexible artist, who experiments with different musical styles and themes throughout his career. Eminem's music, performances, and lyrical content can be described as 'intense', 'rebellious' and 'independent', as he is known for an individualistic approach to his music that constantly challenging and resisting societal expectations and norms.<sup>13</sup>", unsafe_allow_html=True)
     
     col12,col13,col14=st.columns([4,5,5])
     
@@ -1009,7 +1009,7 @@ if selected == "Analysis of Artists":
     
     
     st.subheader("Analysis of Justin Bieber")
-    st.markdown("Justin Bieber is known for one of the most giving celebrities, because of his altruism from supporting numerous charities. Bieber is being described as passionate and emotionally sensitive (being photographed sobbing on a city bike, had emotional breakdown during the VMAs, etc.), with his music capturing his emotional sensitivity alongside his artistry and creativity. The songs reflect his character as his sensitive lyrics, energetic beats, as well as flexible music style.<sup>15</sup>", unsafe_allow_html=True)
+    st.markdown("Justin Bieber is known for one of the most giving celebrities, because of his altruism from supporting numerous charities. Bieber is being described as passionate and emotionally sensitive (being photographed sobbing on a city bike, had emotional breakdown during the VMAs, etc.), with his music capturing his emotional sensitivity alongside his artistry and creativity. The songs reflect his character as his sensitive lyrics, energetic beats, as well as flexible music style.<sup>14</sup>", unsafe_allow_html=True)
     
     col4,col5,col6=st.columns([4,5,5])
     
@@ -1032,7 +1032,7 @@ if selected == "Analysis of Artists":
     
     
     st.subheader("Analysis of Dua Lipa")
-    st.markdown("Dua Lipa has been known for her upbeat and dance songs. As pop music was dominated by the downbeat songs of aggrieved and sadness, Dua Lipa came with her dancey and joyous-sounding tracks, to change the scene of pop music, even when the song is about a break-up. Dua Lipa's persona is slightly mysterious, yet everyone can feel her genuine personality, and her authenticity, through her music.<sup>16</sup>", unsafe_allow_html=True)
+    st.markdown("Dua Lipa has been known for her upbeat and dance songs. As pop music was dominated by the downbeat songs of aggrieved and sadness, Dua Lipa came with her dancey and joyous-sounding tracks, to change the scene of pop music, even when the song is about a break-up. Dua Lipa's persona is slightly mysterious, yet everyone can feel her genuine personality, and her authenticity, through her music.<sup>15</sup>", unsafe_allow_html=True)
     
     col4,col5,col6=st.columns([4,5,5])
     
@@ -1055,7 +1055,7 @@ if selected == "Analysis of Artists":
     
     
     st.subheader("Analysis of BTS")
-    st.markdown("BTS, being identified as K-pop group, has a versatile discography with diverse musical styles throughout the years, ranging from rap/hip hop and dance tracks to ballads. BTS spans several languages (including Korean, English and Japanese) that attracts a global audience, with their music having uplifting messages and speaking up on important issues, including mental health awareness and self-love.<sup>17</sup> <sup>18</sup>", unsafe_allow_html=True)
+    st.markdown("BTS, being identified as K-pop group, has a versatile discography with diverse musical styles throughout the years, ranging from rap/hip hop and dance tracks to ballads. BTS spans several languages (including Korean, English and Japanese) that attracts a global audience, with their music having uplifting messages and speaking up on important issues, including mental health awareness and self-love.<sup>16</sup> <sup>17</sup>", unsafe_allow_html=True)
     
     col4,col5,col6=st.columns([4,5,5])
     
@@ -1089,5 +1089,28 @@ if selected=="Conclusion":
     st.markdown("Most of the observations align with past studies and claims made by experts, except for the aspects of Mode and Key. This suggests that audience preferences for the specified musical attributes have remained relatively consistent over recent years. However, there may have been some changes in the preferences for the Mode and Key of songs.")
     st.markdown("The above results outline the 'scientific' factors that contribute to certain tracks being more popular than others, as well as the user preferences for popular songs as of 2023. Through this case study, we have gained a better understanding of the specific user preferences for songs and the musical traits that many people loves. Hopefully, now we've understood why we enjoy certain songs that we listen to today!")
 
+    
+
+
+
+
 if selected=="Bibliography":
     st.title("Bibliography")
+    st.markdown("The dataset is downloaded from https://www.kaggle.com/datasets/nelgiriyewithana/top-spotify-songs-2023, date accessed, 2023-12-20")
+    st.markdown("[1] About Spotify, https://newsroom.spotify.com/company-info/, date accessed, 2023-12-20")
+    st.markdown("[2] How we generate popular tracks, https://support.spotify.com/us/artists/article/how-we-generate-popular-tracks/, date accessed, 2023-12-20")
+    st.markdown("[3] What Makes a Song Likeable?, Ashrith, Dec 4, 2018, https://towardsdatascience.com/what-makes-a-song-likeable-dbfdb7abe404")
+    st.markdown("[4] What are factors that make song in Spotify popular?, Ravee Virojsirasak, Oct 16, 2021, https://medium.com/@sunsunvirojsirasak/what-are-factors-that-make-song-in-spotify-popular-3cdcb3fb3a10")
+    st.markdown("[5] What makes a song a hit?, Rachel Drysdale, Jul 16, 2021, https://medium.com/@racheldrysdale_/what-makes-a-song-a-hit-9d8eb4512639")
+    st.markdown("[6] Apple Music vs. Spotify: Which music streaming service is the best?, Michael Bizzaco , Tyler Lacoma and Amanda Blain, Nov 29, 2023, https://www.digitaltrends.com/mobile/apple-music-vs-spotify/")
+    st.markdown("[7] Best free music apps 2023: free music on Android and iPhone, Harry McKerrell, Nov 18, 2023, https://www.whathifi.com/best-buys/best-free-music-apps-free-music-on-android-and-iphone")
+    st.markdown("[8] Best Day To Release Music: Your Success in the Music Industry, Josh McKenzie, Apr 14, 2023, https://www.cdunity.com/best-day-to-release-music/")
+    st.markdown("[9] Why Do We Release Music On Fridays?, https://www.otherrecordlabels.com/why-do-we-release-music-on-fridays, date accessed, 2023-12-20")
+    st.markdown("[10] Best Day To Release Music On Spotify: The Answer May Surprise You!, Grizzly Beatz, Oct 16, 2021, https://www.grizzlybeatz.com/lofi-hip-hop-blog/best-day-to-release-music-on-spotify-the-answer-may-surprise-you")
+    st.markdown("[11] Taylor Swift Personality Type, Traits, and MBTI Analysis, Alexandru Ion, March 25, 2023, https://www.thecoolist.com/personality/types/celebrity/taylor-swift/")
+    st.markdown("[12] Taylor Swift Songs As Personality Types, Lyle Opolentisima, Oct 20, 2023, https://dailyinfographic.com/taylor-swift-songs-as-personality-types")
+    st.markdown("[13] Eminem Personality Type, Traits, and MBTI Analysis, Theresa Schramm, May 27, 2023, https://www.thecoolist.com/personality/types/celebrity/eminem/")
+    st.markdown("[14] Justin Bieber Personality Type, Traits, and MBTI Analysis, Alexandru Ion, Jan 31, 2023, https://www.thecoolist.com/personality/types/celebrity/justin-bieber/")
+    st.markdown("[15] New Rules: Dua Lipa Is Changing Pop Music, Here's How, ANGELA NATIVIDAD, Jun 7, 2022, https://www.thethings.com/heres-how-dua-lipa-is-changing-the-rules-of-pop-music/")
+    st.markdown("[16] What it means when we say BTS is the Genre, Alexandra Nae, Jun 25, 2021, https://enthralledbookworm.wordpress.com/2021/06/25/what-it-means-when-we-say-bts-is-the-genre/")
+    st.markdown("[17] Why Is BTS So Popular? 9 Questions About The K-Pop Phenoms Answered, ASHLEE MITCHELL, May 28, 2022, https://dailyinfographic.com/taylor-swift-songs-as-personality-types")
