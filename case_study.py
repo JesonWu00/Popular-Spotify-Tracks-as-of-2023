@@ -226,7 +226,7 @@ with st.sidebar:
 		menu_title = 'Navigation Pane',
 		options = ['Abstract', 'Background Information', 'Data Cleaning','Exploratory Analysis', 'Analysis of Song Features', 'Analysis of Playlists & Time Factors', 'Analysis of Artists', 'Conclusion', 'Bibliography'],
 		menu_icon = 'music-note-list',
-		icons = ['bookmark-check', 'book', 'box', 'map', 'boxes', 'headphones', 'boxes', 'bar-chart', 'check2-circle'],
+		icons = ['bookmark-check', 'book', 'box', 'map', 'file-earmark-music-fill', 'headphones', 'music-player-fill', 'bar-chart', 'check2-circle'],
 		default_index = 0,
 		)
 
