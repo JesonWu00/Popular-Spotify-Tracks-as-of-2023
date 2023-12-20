@@ -6,9 +6,6 @@ Created on Fri Nov 24 22:13:52 2023
 @author: mac
 """
 
-# cd /Users/mac/Desktop/files/Data_Science_Python
-# streamlit run case_study.py
-
 import csv
 import pandas as pd
 import numpy as np
@@ -21,7 +18,7 @@ st.set_page_config(layout="wide")
 
 pd.options.plotting.backend = "plotly"
 
-file_path = '/Users/mac/Desktop/files/Data_Science_Python/'
+file_path = ''
 spotify=pd.read_csv(file_path+'spotify.csv', encoding='latin-1')
 
 spotify['artists_name']=spotify['artists_name'].str.replace("\x96","ñ")
