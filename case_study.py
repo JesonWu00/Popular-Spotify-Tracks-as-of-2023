@@ -236,6 +236,7 @@ if selected=='Abstract':
     st.markdown("Nowadays, we all can listen to music through our mobile apps, such as Spotify, Apple Music, and many of us enjoy listen to songs that we like. However, have you ever wondered why many people would love certain songs, and why they are popular as it is today? What are the “scientific” factors that makes certain tracks more popular than others?")
     st.markdown("Based on a given dataset, we will come up with scientific reasons that would answer these questions through this case study! This case study aims to explore certain patterns in the dataset, to understand what scientifically make a track popular, the factors that make the tracks popular, and the user preferences of popular songs. Without further ado, let’s get started!")
 
+    st.markdown("<i>This app is best viewed in light mode, click on settings and then select \"light\".</i>")
 
 
 
