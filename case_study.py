@@ -6,6 +6,9 @@ Created on Fri Nov 24 22:13:52 2023
 @author: mac
 """
 
+# cd /Users/mac/Desktop/files/Data_Science_Python
+# streamlit run case_study.py
+
 import csv
 import pandas as pd
 import numpy as np
@@ -18,7 +21,7 @@ st.set_page_config(layout="wide")
 
 pd.options.plotting.backend = "plotly"
 
-file_path = ''
+file_path = '/Users/mac/Desktop/files/Data_Science_Python/'
 spotify=pd.read_csv(file_path+'spotify.csv', encoding='latin-1')
 
 spotify['artists_name']=spotify['artists_name'].str.replace("\x96","ñ")
@@ -233,10 +236,12 @@ with st.sidebar:
 
 if selected=='Abstract':
     st.title("Spotify Abstract")
-    st.markdown("Nowadays, we all can listen to music through our mobile apps, such as Spotify, Apple Music, and many of us enjoy listen to songs that we like. However, have you ever wondered why many people would love certain songs, and why they are popular as it is today? What are the “scientific” factors that makes certain tracks more popular than others?")
-    st.markdown("Based on a given dataset, we will come up with scientific reasons that would answer these questions through this case study! This case study aims to explore certain patterns in the dataset, to understand what scientifically make a track popular, the factors that make the tracks popular, and the user preferences of popular songs. Without further ado, let’s get started!")
-
+    st.markdown("Nowadays, we can all listen to music through our mobile apps, such as Spotify and Apple Music. Many of us enjoy listening to songs that we like. However, have you ever wondered why many people love certain songs and why they are popular today? What are the 'scientific' factors that make certain tracks more popular than others?")
+    st.markdown("Based on a given dataset, we will come up with scientific reasons that would answer these questions through this case study! This case study aims to explore certain patterns in the dataset, to understand what scientifically makes a track popular, the factors that make tracks popular, and the user preferences of popular songs. Without further ado, let’s get started!")
+    
     st.markdown('<p style="font-size:14px"><i>Note: This app is best viewed in light mode, click on settings and then select "light"</i></p>',unsafe_allow_html=True)
+
+
 
 
 
@@ -245,8 +250,9 @@ if selected=="Background Information":
     
     st.markdown("Spotify, a Swedish audio streaming platform, is one of the largest music applications, as well as one of the most prominent music streaming service that we use today. As of September 2023, Spotify has over 100 million tracks, more than 574 million users, including 226 million subscribers.<sup>1</sup> Spotify generates “popular tracks” based on the number of all-time and recent streams.<sup>2</sup>",unsafe_allow_html=True)
     
+    st.markdown("This is the data:",unsafe_allow_html=True)
     st.markdown("The Spotify dataset provides information of the most streamed songs on Spotify, as of 2023. The dataset contains the most popular songs released from 20th century up to 2023, by solo artists, duets, groups, or multi-artist collaborations. Each row in the dataset contains information on a specific song, including its name, artist(s), number of artists featured (artist count), released date, number of streams, presence in playlists and charts on platforms like Spotify, Apple Music, Deezer, as well as various audio features including danceability, valence, energy, etc., that are considered as the scientific attributes of a song.",unsafe_allow_html=True)
-    st.markdown("Each of the audio features range from 0 to 100%, to describe how much of those attributes are present in the particular track. Danceability measures how much the track is suitable for dancing based on its musical elements (such as tempo, rhythm stability, beat strength, etc.); Valence describes the musical positiveness that the track conveys, that it measures how happy, cheerful, euphoric (if the track sounds positive), or how sad, depressed, angry (if the track sounds negative) a particular track is. Energy is a perceptual measure of intensity and activity, that more energy means that the track is fast, loud or noisy enough. Acousticness is a confidence measure of whether the track is acoustic. Instrumentalness measures how much the track is an “instrumental”, meaning that no spoken words are present. Liveness detects the audience presence in the recording, meaning an increased probability that the track was performed live. Speechiness detects the presence of spoken words in a track, and tracks like talk show, audio book, poetry usually comes close to 100% of speechiness.<sup>3</sup>",unsafe_allow_html=True)
+    st.markdown("Each of the audio features range from 0 to 100%, describing how much of those attributes are present in the particular track. Danceability measures how suitable a track is for dancing based on its musical elements (such as tempo, rhythm stability, beat strength, etc.). Valence describes the musical positiveness that the track conveys, measuring how happy, cheerful, or euphoric (if the track sounds positive) or how sad, depressed, or angry (if the track sounds negative) it is. Energy is a perceptual measure of intensity and activity; more energy means that the track is fast, loud, or noisy enough. Acousticness is a confidence measure of whether the track is acoustic. Instrumentalness measures how much the track is instrumental, meaning that no spoken words are present. Liveness detects the audience presence in the recording, meaning an increased probability that the track was performed live. Speechiness detects the presence of spoken words in a track; tracks like talk shows, audiobooks, and poetry usually have close to 100% speechiness.<sup>3</sup>",unsafe_allow_html=True)
     st.markdown("We will first look at the previous studies on Spotify's popular tracks by experts. According to previous studies on Spotify’s top tracks in 2019, not all danceable songs are popular, but tracks with a danceability ranging from 64-84% (higher level) are the most popular ones on Spotify. Meanwhile, tracks with a moderate amount of energy (43-65%) can be more popular than tracks with low energy (below 40%) or with very high energy (above 80%). Low levels of speechiness also makes the track more popular, as the audience usually want to listen to the lyrics of the song instead of spoken words. Acousticness within 1-59% is a good range, but sometimes people don’t like acousticness around 1-30%, meaning that acousticness also depends on the genre of the track. Valence, however, doesn’t have much effect on the popularity of the song. In fact, the song’s artist(s) can also make the song itself popular, especially for the most popular artists.<sup>4</sup>",unsafe_allow_html=True)
     st.markdown("From the top 10 most popular songs on Spotify during 2017, all songs have high levels of danceability (above 60%), they are low on liveness & speechiness, and they all have mid-to-high energy (40-80%). 9 out of 10 songs are very low on acousticness, with one exception being Ed Sheeran’s “Shape of You”. Valence, though, is quite spread out around the mid-to-high region. As for instrumentalness, most popular tracks seem to have a value that is near or equal to 0.<sup>3</sup>",unsafe_allow_html=True)
     st.markdown("According to a 2021 study on the same topic, popularity increases with higher danceability and energy scores and lower acousticness and instrumentalness scores. Not only that, but tracks written in keys of B, A and E have the highest average popularity score, while for the modes of the track (major, minor), there isn’t a large difference in average popularity. These claims will be tested in the case study, to examine the 2023 trends and explain more “scientifically” of what makes certain tracks more popular than others.<sup>5</sup>",unsafe_allow_html=True)
@@ -258,7 +264,7 @@ if selected=="Background Information":
 
 if selected=="Data Cleaning":
     st.title('Data Cleaning')
-    st.markdown("The data cleaning process mainly involves replacing the special characters that appear when reading in the dataset, converting released days & months, adding a variable to measure the level of each musical attribute, and to melt the dataframe by certain variables to investigate, for graphing purposes.")
+    st.markdown("The data cleaning process mainly involves replacing special characters that appear when reading in the dataset, converting the release dates and months, adding a variable to measure the level of each musical attribute, and melting the dataframe by certain variables for investigation and graphing purposes.")
     
     st.markdown("Because of the special characters that appear in the track names and artist names, the encoding needs to be specified when reading in the data:")
     code_insert='''file_path = '/Users/mac/Desktop/files/Data_Science_Python'\nspotify=pd.read_csv(file_path+'/spotify.csv', encoding='latin-1')'''
